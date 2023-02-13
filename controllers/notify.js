@@ -1,4 +1,6 @@
-import { user } from '../controllers/alarm.js'
+import { user } from '../controllers/alarm.js';
+import { webPush } from '../index.js';
+import { subscription } from './subscribe.js';
 
 const pushNotify = () => {
     let date;
@@ -14,6 +16,11 @@ const pushNotify = () => {
             isNotify1 == true
         ) {
             console.log("Đã đến giờ uống thuốc!");
+            const payload = JSON.stringify({
+                title: 'Đã đến giờ uống thuốc!'
+            })
+            webPush.sendNotification(subscription, payload)
+                .catch(err => console.error(err));
         }
     }, 30000)
 }

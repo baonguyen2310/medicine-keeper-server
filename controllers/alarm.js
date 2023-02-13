@@ -1,5 +1,7 @@
 import moment from 'moment';
 import userModel from "../models/user.js";
+import { webPush } from '../index.js';
+import { subscription } from './subscribe.js';
 
 const user = {
     username: '',
@@ -28,6 +30,14 @@ const postTime = async (req, res) => {
             "alarm.monday.morning.isNotify": req.body.checked1
         }
     )
+
+    const payload = JSON.stringify({
+        title: 'Posted'
+    })
+    console.log(subscription);
+
+    webPush.sendNotification(subscription, payload)
+        .catch(err => console.error(err));
 }
 
 const getTime = async (req, res) => {

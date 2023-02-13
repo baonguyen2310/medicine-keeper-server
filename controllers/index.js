@@ -2,6 +2,7 @@ import { postTime, getTime, updateTime } from './alarm.js';
 import { pushNotify, setNotify } from './notify.js';
 import { postTook } from './took.js';
 import { register, login, updateInfo, changePassword, deleteAccount } from './user.js';
+import { subscribe } from './subscribe.js';
 
 export { 
     postTime, 
@@ -14,5 +15,6 @@ export {
     login,
     updateInfo,
     changePassword,
-    deleteAccount
+    deleteAccount,
+    subscribe
 };
