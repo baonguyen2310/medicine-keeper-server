@@ -42,6 +42,7 @@ app.post('/notify', setNotify);
 mongoose.connect("mongodb+srv://khkt:khkt@cluster0.bditlhp.mongodb.net/?retryWrites=true&w=majority")
     .then(() => {
         console.log("Connected mongodb");
+        pushNotify();
     })
     .catch((err) => {
         console.log(err);

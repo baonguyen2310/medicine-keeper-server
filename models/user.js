@@ -23,119 +23,119 @@ const userSchema = new mongoose.Schema({
     alarm: {
         monday: {
             morning: {
-                time: {type: String, require: true},
+                time: {type: Date, require: true},
                 isTook: {type: Boolean, require: true},
                 isNotify: {type: Boolean, require: true}
             },
             afternoon: {
-                time: {type: String, require: true},
+                time: {type: Date, require: true},
                 isTook: {type: Boolean, require: true},
                 isNotify: {type: Boolean, require: true}
             },
             evening: {
-                time: {type: String, require: true},
+                time: {type: Date, require: true},
                 isTook: {type: Boolean, require: true},
                 isNotify: {type: Boolean, require: true}
             }
         },
         tuesday: {
             morning: {
-                time: {type: String, require: true},
+                time: {type: Date, require: true},
                 isTook: {type: Boolean, require: true},
                 isNotify: {type: Boolean, require: true}
             },
             afternoon: {
-                time: {type: String, require: true},
+                time: {type: Date, require: true},
                 isTook: {type: Boolean, require: true},
                 isNotify: {type: Boolean, require: true}
             },
             evening: {
-                time: {type: String, require: true},
+                time: {type: Date, require: true},
                 isTook: {type: Boolean, require: true},
                 isNotify: {type: Boolean, require: true}
             }
         },
         wednesday: {
             morning: {
-                time: {type: String, require: true},
+                time: {type: Date, require: true},
                 isTook: {type: Boolean, require: true},
                 isNotify: {type: Boolean, require: true}
             },
             afternoon: {
-                time: {type: String, require: true},
+                time: {type: Date, require: true},
                 isTook: {type: Boolean, require: true},
                 isNotify: {type: Boolean, require: true}
             },
             evening: {
-                time: {type: String, require: true},
+                time: {type: Date, require: true},
                 isTook: {type: Boolean, require: true},
                 isNotify: {type: Boolean, require: true}
             }
         },
         thursday: {
             morning: {
-                time: {type: String, require: true},
+                time: {type: Date, require: true},
                 isTook: {type: Boolean, require: true},
                 isNotify: {type: Boolean, require: true}
             },
             afternoon: {
-                time: {type: String, require: true},
+                time: {type: Date, require: true},
                 isTook: {type: Boolean, require: true},
                 isNotify: {type: Boolean, require: true}
             },
             evening: {
-                time: {type: String, require: true},
+                time: {type: Date, require: true},
                 isTook: {type: Boolean, require: true},
                 isNotify: {type: Boolean, require: true}
             }
         },
         friday: {
             morning: {
-                time: {type: String, require: true},
+                time: {type: Date, require: true},
                 isTook: {type: Boolean, require: true},
                 isNotify: {type: Boolean, require: true}
             },
             afternoon: {
-                time: {type: String, require: true},
+                time: {type: Date, require: true},
                 isTook: {type: Boolean, require: true},
                 isNotify: {type: Boolean, require: true}
             },
             evening: {
-                time: {type: String, require: true},
+                time: {type: Date, require: true},
                 isTook: {type: Boolean, require: true},
                 isNotify: {type: Boolean, require: true}
             }
         },
         saturday: {
             morning: {
-                time: {type: String, require: true},
+                time: {type: Date, require: true},
                 isTook: {type: Boolean, require: true},
                 isNotify: {type: Boolean, require: true}
             },
             afternoon: {
-                time: {type: String, require: true},
+                time: {type: Date, require: true},
                 isTook: {type: Boolean, require: true},
                 isNotify: {type: Boolean, require: true}
             },
             evening: {
-                time: {type: String, require: true},
+                time: {type: Date, require: true},
                 isTook: {type: Boolean, require: true},
                 isNotify: {type: Boolean, require: true}
             }
         },
         sunday: {
             morning: {
-                time: {type: String, require: true},
+                time: {type: Date, require: true},
                 isTook: {type: Boolean, require: true},
                 isNotify: {type: Boolean, require: true}
             },
             afternoon: {
-                time: {type: String, require: true},
+                time: {type: Date, require: true},
                 isTook: {type: Boolean, require: true},
                 isNotify: {type: Boolean, require: true}
             },
             evening: {
-                time: {type: String, require: true},
+                time: {type: Date, require: true},
                 isTook: {type: Boolean, require: true},
                 isNotify: {type: Boolean, require: true}
             }

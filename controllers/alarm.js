@@ -1,7 +1,33 @@
+import moment from 'moment';
 import userModel from "../models/user.js";
 
-const postTime = (req, res) => {
-    res.send('setTime');
+const user = {
+    username: '',
+    alarm: {
+        monday: {
+            morning: {
+                time: '',
+                isTook: false,
+                isNotify: false
+            }
+        }
+    }
+}
+
+const postTime = async (req, res) => {
+    //console.log(moment(req.body.alarm1).utcOffset('+0700'));
+    console.log(req.body);
+    user.username = req.body.username;
+    user.alarm.monday.morning.time = req.body.alarm1;
+    user.alarm.monday.morning.isNotify = req.body.checked1;
+
+    await userModel.findOneAndUpdate(
+        { username: req.body.username },
+        {
+            "alarm.monday.morning.time": req.body.alarm1,
+            "alarm.monday.morning.isNotify": req.body.checked1
+        }
+    )
 }
 
 const getTime = async (req, res) => {
@@ -141,4 +167,4 @@ const updateTime = (req, res) => {
 
 }
 
-export { postTime, getTime, updateTime };
+export { postTime, getTime, updateTime, user };
