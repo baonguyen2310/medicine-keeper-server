@@ -1,180 +1,53 @@
-import moment from 'moment';
+import moment from "moment";
 import userModel from "../models/user.js";
-import { webPush } from '../index.js';
-import { subscription } from './subscribe.js';
-
-const user = {
-    username: '',
-    alarm: {
-        monday: {
-            morning: {
-                time: '',
-                isTook: false,
-                isNotify: false
-            }
-        }
-    }
-}
+import { webPush } from "../index.js";
+import { users } from "./user.js";
 
 const postTime = async (req, res) => {
-    //console.log(moment(req.body.alarm1).utcOffset('+0700'));
-    console.log(req.body);
-    user.username = req.body.username;
-    user.alarm.monday.morning.time = req.body.alarm1;
-    user.alarm.monday.morning.isNotify = req.body.checked1;
+  //console.log(moment(req.body.alarm1).utcOffset('+0700'));
+  const data = res.locals.data;
 
-    await userModel.findOneAndUpdate(
-        { username: req.body.username },
-        {
-            "alarm.monday.morning.time": req.body.alarm1,
-            "alarm.monday.morning.isNotify": req.body.checked1
-        }
-    )
+  await userModel.findOneAndUpdate(
+    { username: data.username },
+    {
+      "alarm.monday.morning.time": req.body.alarm1,
+      "alarm.monday.afternoon.time": req.body.alarm2,
+      "alarm.monday.evening.time": req.body.alarm3,
+      "alarm.monday.morning.isNotify": req.body.checked1,
+      "alarm.monday.afternoon.isNotify": req.body.checked2,
+      "alarm.monday.evening.isNotify": req.body.checked3,
+    }
+  );
 
-    const payload = JSON.stringify({
-        title: 'Posted'
-    })
-    console.log(subscription);
-
-    webPush.sendNotification(subscription, payload)
-        .catch(err => console.error(err));
-}
+  //Mỗi lần post cập nhật lại mảng users
+  for (let i = 0; i < users.length; i++) {
+    if (users[i].username == data.username) {
+      users[i].alarm.monday.morning.time = req.body.alarm1;
+      users[i].alarm.monday.afternoon.time = req.body.alarm2;
+      users[i].alarm.monday.evening.time = req.body.alarm3;
+      users[i].alarm.monday.morning.isNotify = req.body.checked1;
+      users[i].alarm.monday.afternoon.isNotify = req.body.checked2;
+      users[i].alarm.monday.evening.isNotify = req.body.checked3;
+    }
+  }
+};
 
 const getTime = async (req, res) => {
-    res.send('getTime');
-    const record = new userModel({
-        username: 'jack',
-        password: 'jack',
-        age: 97,
-        sexual: 'male',
-        ESPCODE: 'ESP01',
-        alarm: {
-            monday: {
-                morning: {
-                    time: new Date(2023, 2, 11, 13, 30),
-                    isTook: false,
-                    isNotify: true
-                },
-                afternoon: {
-                    time: new Date(2023, 2, 11, 13, 30),
-                    isTook: false,
-                    isNotify: true
-                },
-                evening: {
-                    time: new Date(2023, 2, 11, 13, 30),
-                    isTook: false,
-                    isNotify: true
-                }
-            },
-            tuesday: {
-                morning: {
-                    time: new Date(2023, 2, 11, 13, 30),
-                    isTook: false,
-                    isNotify: true
-                },
-                afternoon: {
-                    time: new Date(2023, 2, 11, 13, 30),
-                    isTook: false,
-                    isNotify: true
-                },
-                evening: {
-                    time: new Date(2023, 2, 11, 13, 30),
-                    isTook: false,
-                    isNotify: true
-                }
-            },
-            wednesday: {
-                morning: {
-                    time: new Date(2023, 2, 11, 13, 30),
-                    isTook: false,
-                    isNotify: true
-                },
-                afternoon: {
-                    time: new Date(2023, 2, 11, 13, 30),
-                    isTook: false,
-                    isNotify: true
-                },
-                evening: {
-                    time: new Date(2023, 2, 11, 13, 30),
-                    isTook: false,
-                    isNotify: true
-                }
-            },
-            thursday: {
-                morning: {
-                    time: new Date(2023, 2, 11, 13, 30),
-                    isTook: false,
-                    isNotify: true
-                },
-                afternoon: {
-                    time: new Date(2023, 2, 11, 13, 30),
-                    isTook: false,
-                    isNotify: true
-                },
-                evening: {
-                    time: new Date(2023, 2, 11, 13, 30),
-                    isTook: false,
-                    isNotify: true
-                }
-            },
-            friday: {
-                morning: {
-                    time: new Date(2023, 2, 11, 13, 30),
-                    isTook: false,
-                    isNotify: true
-                },
-                afternoon: {
-                    time: new Date(2023, 2, 11, 13, 30),
-                    isTook: false,
-                    isNotify: true
-                },
-                evening: {
-                    time: new Date(2023, 2, 11, 13, 30),
-                    isTook: false,
-                    isNotify: true
-                }
-            },
-            saturday: {
-                morning: {
-                    time: new Date(2023, 2, 11, 13, 30),
-                    isTook: false,
-                    isNotify: true
-                },
-                afternoon: {
-                    time: new Date(2023, 2, 11, 13, 30),
-                    isTook: false,
-                    isNotify: true
-                },
-                evening: {
-                    time: new Date(2023, 2, 11, 13, 30),
-                    isTook: false,
-                    isNotify: true
-                }
-            },
-            sunday: {
-                morning: {
-                    time: new Date(2023, 2, 11, 13, 30),
-                    isTook: false,
-                    isNotify: true
-                },
-                afternoon: {
-                    time: new Date(2023, 2, 11, 13, 30),
-                    isTook: false,
-                    isNotify: true
-                },
-                evening: {
-                    time: new Date(2023, 2, 11, 13, 30),
-                    isTook: false,
-                    isNotify: true
-                }
-            }
-        }
-    })
-    //await record.save();
-}
+  const data = res.locals.data;
+  let doc = await userModel.findOne({ username: data.username });
 
-const updateTime = (req, res) => {
+  if (doc != null) {
+    res.json({
+      alarm1: doc.alarm.monday.morning.time,
+      alarm2: doc.alarm.monday.afternoon.time,
+      alarm3: doc.alarm.monday.evening.time,
+      checked1: doc.alarm.monday.morning.isNotify,
+      checked2: doc.alarm.monday.afternoon.isNotify,
+      checked3: doc.alarm.monday.evening.isNotify,
+    });
+  }
+};
 
-}
+const updateTime = (req, res) => {};
 
-export { postTime, getTime, updateTime, user };
+export { postTime, getTime, updateTime };

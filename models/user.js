@@ -10,134 +10,140 @@ const userSchema = new mongoose.Schema({
     },
     age: {
         type: Number,
-        require: true
+        require: true,
+        default: 55
     },
     sexual: {
         type: String,
-        require: true
+        require: true,
+        default: "male"
     },
     ESPCODE: {
         type: String,
-        require: true
+        require: true,
+        default: "ESP001"
+    },
+    subscription: {
+        type: Object
     },
     alarm: {
         monday: {
             morning: {
-                time: {type: Date, require: true},
-                isTook: {type: Boolean, require: true},
-                isNotify: {type: Boolean, require: true}
+                time: {type: Date, require: true, default: new Date()},
+                isTook: {type: Boolean, require: true, default: false},
+                isNotify: {type: Boolean, require: true, default: false}
             },
             afternoon: {
-                time: {type: Date, require: true},
-                isTook: {type: Boolean, require: true},
-                isNotify: {type: Boolean, require: true}
+                time: {type: Date, require: true, default: new Date()},
+                isTook: {type: Boolean, require: true, default: false},
+                isNotify: {type: Boolean, require: true, default: false}
             },
             evening: {
-                time: {type: Date, require: true},
-                isTook: {type: Boolean, require: true},
-                isNotify: {type: Boolean, require: true}
+                time: {type: Date, require: true, default: new Date()},
+                isTook: {type: Boolean, require: true, default: false},
+                isNotify: {type: Boolean, require: true, default: false}
             }
         },
         tuesday: {
             morning: {
-                time: {type: Date, require: true},
-                isTook: {type: Boolean, require: true},
-                isNotify: {type: Boolean, require: true}
+                time: {type: Date, require: true, default: new Date()},
+                isTook: {type: Boolean, require: true, default: false},
+                isNotify: {type: Boolean, require: true, default: false}
             },
             afternoon: {
-                time: {type: Date, require: true},
-                isTook: {type: Boolean, require: true},
-                isNotify: {type: Boolean, require: true}
+                time: {type: Date, require: true, default: new Date()},
+                isTook: {type: Boolean, require: true, default: false},
+                isNotify: {type: Boolean, require: true, default: false}
             },
             evening: {
-                time: {type: Date, require: true},
-                isTook: {type: Boolean, require: true},
-                isNotify: {type: Boolean, require: true}
+                time: {type: Date, require: true, default: new Date()},
+                isTook: {type: Boolean, require: true, default: false},
+                isNotify: {type: Boolean, require: true, default: false}
             }
         },
         wednesday: {
             morning: {
-                time: {type: Date, require: true},
-                isTook: {type: Boolean, require: true},
-                isNotify: {type: Boolean, require: true}
+                time: {type: Date, require: true, default: new Date()},
+                isTook: {type: Boolean, require: true, default: false},
+                isNotify: {type: Boolean, require: true, default: false}
             },
             afternoon: {
-                time: {type: Date, require: true},
-                isTook: {type: Boolean, require: true},
-                isNotify: {type: Boolean, require: true}
+                time: {type: Date, require: true, default: new Date()},
+                isTook: {type: Boolean, require: true, default: false},
+                isNotify: {type: Boolean, require: true, default: false}
             },
             evening: {
-                time: {type: Date, require: true},
-                isTook: {type: Boolean, require: true},
-                isNotify: {type: Boolean, require: true}
+                time: {type: Date, require: true, default: new Date()},
+                isTook: {type: Boolean, require: true, default: false},
+                isNotify: {type: Boolean, require: true, default: false}
             }
         },
         thursday: {
             morning: {
-                time: {type: Date, require: true},
-                isTook: {type: Boolean, require: true},
-                isNotify: {type: Boolean, require: true}
+                time: {type: Date, require: true, default: new Date()},
+                isTook: {type: Boolean, require: true, default: false},
+                isNotify: {type: Boolean, require: true, default: false}
             },
             afternoon: {
-                time: {type: Date, require: true},
-                isTook: {type: Boolean, require: true},
-                isNotify: {type: Boolean, require: true}
+                time: {type: Date, require: true, default: new Date()},
+                isTook: {type: Boolean, require: true, default: false},
+                isNotify: {type: Boolean, require: true, default: false}
             },
             evening: {
-                time: {type: Date, require: true},
-                isTook: {type: Boolean, require: true},
-                isNotify: {type: Boolean, require: true}
+                time: {type: Date, require: true, default: new Date()},
+                isTook: {type: Boolean, require: true, default: false},
+                isNotify: {type: Boolean, require: true, default: false}
             }
         },
         friday: {
             morning: {
-                time: {type: Date, require: true},
-                isTook: {type: Boolean, require: true},
-                isNotify: {type: Boolean, require: true}
+                time: {type: Date, require: true, default: new Date()},
+                isTook: {type: Boolean, require: true, default: false},
+                isNotify: {type: Boolean, require: true, default: false}
             },
             afternoon: {
-                time: {type: Date, require: true},
-                isTook: {type: Boolean, require: true},
-                isNotify: {type: Boolean, require: true}
+                time: {type: Date, require: true, default: new Date()},
+                isTook: {type: Boolean, require: true, default: false},
+                isNotify: {type: Boolean, require: true, default: false}
             },
             evening: {
-                time: {type: Date, require: true},
-                isTook: {type: Boolean, require: true},
-                isNotify: {type: Boolean, require: true}
+                time: {type: Date, require: true, default: new Date()},
+                isTook: {type: Boolean, require: true, default: false},
+                isNotify: {type: Boolean, require: true, default: false}
             }
         },
         saturday: {
             morning: {
-                time: {type: Date, require: true},
-                isTook: {type: Boolean, require: true},
-                isNotify: {type: Boolean, require: true}
+                time: {type: Date, require: true, default: new Date()},
+                isTook: {type: Boolean, require: true, default: false},
+                isNotify: {type: Boolean, require: true, default: false}
             },
             afternoon: {
-                time: {type: Date, require: true},
-                isTook: {type: Boolean, require: true},
-                isNotify: {type: Boolean, require: true}
+                time: {type: Date, require: true, default: new Date()},
+                isTook: {type: Boolean, require: true, default: false},
+                isNotify: {type: Boolean, require: true, default: false}
             },
             evening: {
-                time: {type: Date, require: true},
-                isTook: {type: Boolean, require: true},
-                isNotify: {type: Boolean, require: true}
+                time: {type: Date, require: true, default: new Date()},
+                isTook: {type: Boolean, require: true, default: false},
+                isNotify: {type: Boolean, require: true, default: false}
             }
         },
         sunday: {
             morning: {
-                time: {type: Date, require: true},
-                isTook: {type: Boolean, require: true},
-                isNotify: {type: Boolean, require: true}
+                time: {type: Date, require: true, default: new Date()},
+                isTook: {type: Boolean, require: true, default: false},
+                isNotify: {type: Boolean, require: true, default: false}
             },
             afternoon: {
-                time: {type: Date, require: true},
-                isTook: {type: Boolean, require: true},
-                isNotify: {type: Boolean, require: true}
+                time: {type: Date, require: true, default: new Date()},
+                isTook: {type: Boolean, require: true, default: false},
+                isNotify: {type: Boolean, require: true, default: false}
             },
             evening: {
-                time: {type: Date, require: true},
-                isTook: {type: Boolean, require: true},
-                isNotify: {type: Boolean, require: true}
+                time: {type: Date, require: true, default: new Date()},
+                isTook: {type: Boolean, require: true, default: false},
+                isNotify: {type: Boolean, require: true, default: false}
             }
         }
     }

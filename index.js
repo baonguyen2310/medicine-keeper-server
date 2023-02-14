@@ -18,8 +18,14 @@ import {
     deleteAccount,
     subscribe
 } from './controllers/index.js';
+import accessTokenMiddleware from './middlewares/accesstoken.js';
 
 dotenv.config();
+
+// import bcrypt from 'bcrypt';
+// bcrypt.genSalt(10).then((value) => {
+//     console.log(value);
+// })
 
 const publicVapidKey = process.env.PUBLIC_VAPID_KEY;
 const privateVapidKey = process.env.PRIVATE_VAPID_KEY;
@@ -44,13 +50,13 @@ app.get('/', (req, res) => {
     res.send('SUCCESS');
 })
 
-app.get('/alarm', getTime);
-app.post('/alarm', postTime);
+app.get('/alarm', accessTokenMiddleware, getTime);
+app.post('/alarm', accessTokenMiddleware, postTime);
 app.post('/took', postTook);
 app.post('/register', register);
 app.post('/login', login);
 app.post('/notify', setNotify);
-app.post('/subscribe', subscribe);
+app.post('/subscribe', accessTokenMiddleware, subscribe);
 
 mongoose.connect("mongodb+srv://khkt:khkt@cluster0.bditlhp.mongodb.net/?retryWrites=true&w=majority")
     .then(() => {
