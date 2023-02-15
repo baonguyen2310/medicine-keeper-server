@@ -16,7 +16,10 @@ import {
     updateInfo,
     changePassword,
     deleteAccount,
-    subscribe
+    subscribe,
+    postTimeESP,
+    getTimeESP,
+    postTookESP
 } from './controllers/index.js';
 import accessTokenMiddleware from './middlewares/accesstoken.js';
 
@@ -57,6 +60,10 @@ app.post('/register', register);
 app.post('/login', login);
 app.post('/notify', setNotify);
 app.post('/subscribe', accessTokenMiddleware, subscribe);
+
+app.get('/esptime', getTimeESP);
+app.post('/esptime', postTimeESP);
+app.post('/esptook', postTookESP);
 
 mongoose.connect("mongodb+srv://khkt:khkt@cluster0.bditlhp.mongodb.net/?retryWrites=true&w=majority")
     .then(() => {

@@ -20,8 +20,7 @@ const userSchema = new mongoose.Schema({
     },
     ESPCODE: {
         type: String,
-        require: true,
-        default: "ESP001"
+        require: true
     },
     subscription: {
         type: Object
