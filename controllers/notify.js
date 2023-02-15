@@ -43,6 +43,14 @@ const pushNotify = async () => {
       isTook1 = users[i].alarm.monday.morning.isTook;
       isTook2 = users[i].alarm.monday.afternoon.isTook;
       isTook3 = users[i].alarm.monday.evening.isTook;
+
+      console.log(date.getHours());
+      console.log(alarm1.getHours());
+      console.log(date.getMinutes());
+      console.log(alarm1.getMinutes());
+      console.log(isNotify1);
+
+
       if (
         date.getHours() == alarm1.getHours() &&
         date.getMinutes() == alarm1.getMinutes() &&
