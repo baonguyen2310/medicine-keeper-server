@@ -31,7 +31,7 @@ const pushNotify = async () => {
   let newStart2;
   let newStart3;
   setInterval(() => {
-    console.log(users);
+    //console.log(users);
     for (let i = 0; i < users.length; i++) {
       date = new Date();
       alarm1 = new Date(users[i].alarm.monday.morning.time);
@@ -44,11 +44,11 @@ const pushNotify = async () => {
       isTook2 = users[i].alarm.monday.afternoon.isTook;
       isTook3 = users[i].alarm.monday.evening.isTook;
 
-      console.log(date.getHours());
-      console.log(alarm1.getHours());
-      console.log(date.getMinutes());
-      console.log(alarm1.getMinutes());
-      console.log(isNotify1);
+      // console.log(date.getHours());
+      // console.log(alarm1.getHours());
+      // console.log(date.getMinutes());
+      // console.log(alarm1.getMinutes());
+      // console.log(isNotify1);
 
 
       if (

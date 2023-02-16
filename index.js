@@ -19,7 +19,8 @@ import {
     subscribe,
     postTimeESP,
     getTimeESP,
-    postTookESP
+    postTookESP,
+    postIsNotifyESP
 } from './controllers/index.js';
 import accessTokenMiddleware from './middlewares/accesstoken.js';
 
@@ -64,6 +65,7 @@ app.post('/subscribe', accessTokenMiddleware, subscribe);
 app.get('/esptime', getTimeESP);
 app.post('/esptime', postTimeESP);
 app.post('/esptook', postTookESP);
+app.post('/espisnotify', postIsNotifyESP);
 
 mongoose.connect("mongodb+srv://khkt:khkt@cluster0.bditlhp.mongodb.net/?retryWrites=true&w=majority")
     .then(() => {

@@ -3,7 +3,7 @@ import { pushNotify, setNotify } from './notify.js';
 import { postTook } from './took.js';
 import { register, login, updateInfo, changePassword, deleteAccount } from './user.js';
 import { subscribe } from './subscribe.js';
-import { postTimeESP, getTimeESP, postTookESP } from './esp.js';
+import { postTimeESP, getTimeESP, postTookESP, postIsNotifyESP } from './esp.js';
 
 export { 
     postTime, 
@@ -20,5 +20,6 @@ export {
     subscribe,
     postTimeESP,
     getTimeESP,
-    postTookESP
+    postTookESP,
+    postIsNotifyESP
 };
