@@ -16,6 +16,9 @@ const postTime = async (req, res) => {
       "alarm.monday.morning.isNotify": req.body.checked1,
       "alarm.monday.afternoon.isNotify": req.body.checked2,
       "alarm.monday.evening.isNotify": req.body.checked3,
+      "alarm.monday.morning.isTook": false,
+      "alarm.monday.afternoon.isTook": false,
+      "alarm.monday.evening.isTook": false,
     }
   );
 
@@ -28,6 +31,9 @@ const postTime = async (req, res) => {
       users[i].alarm.monday.morning.isNotify = req.body.checked1;
       users[i].alarm.monday.afternoon.isNotify = req.body.checked2;
       users[i].alarm.monday.evening.isNotify = req.body.checked3;
+      users[i].alarm.monday.morning.isTook = false;
+      users[i].alarm.monday.afternoon.isTook = false;
+      users[i].alarm.monday.evening.isTook = false;
     }
   }
 };
@@ -44,6 +50,9 @@ const getTime = async (req, res) => {
       checked1: doc.alarm.monday.morning.isNotify,
       checked2: doc.alarm.monday.afternoon.isNotify,
       checked3: doc.alarm.monday.evening.isNotify,
+      isTook1: doc.alarm.monday.morning.isTook,
+      isTook2: doc.alarm.monday.afternoon.isTook,
+      isTook3: doc.alarm.monday.evening.isTook,
     });
   }
 };
