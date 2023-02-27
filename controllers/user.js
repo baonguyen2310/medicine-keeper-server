@@ -47,7 +47,7 @@ const login = async (req, res) => {
       const accessToken = jwt.sign(
         { username: username },
         process.env.ACCESS_TOKEN_SECRET,
-        { expiresIn: "600s" }
+        {}
       );
       console.log({ accessToken });
       res.status(200);
